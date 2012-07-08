@@ -8,6 +8,8 @@ EventMachine::run do
 
   @sub.on(:message) do |channel, message|
     p [:message, channel, message]
+    p message.length
+    p message.class
     p LZMA.decompress(message)
   end
 
