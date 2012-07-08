@@ -2,6 +2,8 @@ require 'eventmachine'
 require 'em-hiredis'
 require 'lzma'
 
+STDOUT.sync = true
+
 EventMachine::run do
   @publisher = EM::Hiredis.connect("redis://localhost:6379")
 
