@@ -1,2 +1,2 @@
-worker_sender: bundle exec ruby sender.rb
-worker_receiver: bundle exec ruby receiver.rb
+worker_sender: bundle exec ruby script/sender.rb
+worker_receiver: bundle exec ruby script/receiver.rb
