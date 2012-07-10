@@ -1,5 +1,6 @@
 require 'eventmachine'
 require 'em-hiredis'
+require 'base64'
 require 'lzma'
 
 STDOUT.sync = true
@@ -9,7 +10,7 @@ EventMachine::run do
   @receiver.subscribe "test_channel"
 
   @receiver.on(:message) do |channel, message|
-    puts LZMA.decompress(message)
+    puts LZMA.decompress(Base64.decode64(message))
   end
 
   trap 'INT' do
